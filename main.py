@@ -15,9 +15,9 @@ def min() -> int:
 
     phi = ((p-1)*(q-1))
 
-    e = 4
+    e = 2
 
-    while(1<e<phi):
+    while(e<phi):
         if (math.gcd(e, phi) == 1): #Возвращает наибольший общий делитель указанных целочисленных аргументов. Если какой-либо из аргументов отличен от нуля, то возвращаемое значение является наибольшим положительным целым числом, которое является делителем всех аргументов.
             break
         else:
@@ -25,9 +25,10 @@ def min() -> int:
  
     print("e =", e)
 
-    k = e
-    d = ((k*phi)+1) / e
-    print("d =", d)
+    k = 2
+    d = pow(e, (-1))
+    d = math.fmod(d, phi)
+    print(f"d = {d}")
     print(f'Public key: {e, n}')
     print(f'Private key: {d, n}')
     print(f'Original message:{msg}')
